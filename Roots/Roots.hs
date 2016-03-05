@@ -30,3 +30,8 @@ roots''' a b c =
     d = sqrt $ b ^ 2 - 4 * a * c
     aTwice = 2 * a
   in (x1, x2)
+
+
+rootsDiff a b c = let
+ (x1,x2) = roots a b c
+ in x2 - x1
