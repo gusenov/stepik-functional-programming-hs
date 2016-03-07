@@ -5,15 +5,10 @@ module Integration where
 integration :: (Double -> Double) -> Double -> Double -> Double
 integration f a b =
  let
-  h = (b - a) / 100000
+  h = (b - a) / 1000
   aHalf = h / 2
-  y x s | a == 0 && b == 0        = 0 
-        | x == a                  = y (a + h) (s + f a)
-        | a < b && x > a && x < b = middle
-        | a > b && x < a && x > b = middle
-        | a < b && x >= b         = end
-        | a > b && x <= b         = end
-   where
-    middle = y (x + h) (s + 2 * f x)
-    end = s + (f b)
- in aHalf * (y a 0)
+  y x s i | a == 0 && b == 0 = 0 
+          | i == 0           = y (a + h) (s + f a) (i + 1)
+          | i == 1000        = s + (f b)
+          | otherwise        = y (x + h) (s + 2 * f x) (i + 1)
+ in aHalf * (y a 0 0)
