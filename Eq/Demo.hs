@@ -1,5 +1,8 @@
 module Demo where
 
+
+
+
 -- Eq - это имя класса типов.
 -- a - это типовой параметр, который параметризует этот класс типов.
 class Eq a where
@@ -11,17 +14,20 @@ class Eq a where
 {- или
  (==), (/=) :: a -> a -> Bool
 -}
- x /= y not (x == y) -- реализация по умолчанию
- x == y not (x /= y) 
+ x /= y = not (x == y) -- реализация по умолчанию
+ x == y = not (x /= y) 
 
- 
+
+
+
 -- Объявление представителя класса типов.
 instance Eq Bool where
  True  == True  = True
  False == False = True
  _     == _     = False
- 
--- x /= y not (x == y)
+-- x /= y       = not (x == y)
+
+
 
 
 -- Полиморфные ограничения появляются в виде контекста.
@@ -32,3 +38,25 @@ instance (Eq a, Eq b) => Eq (a, b) where
 -- instance Eq a => Eq [a] where
 -- реализация
 -- списки равны, когда равны их длины и они совпадают поэлементно
+
+
+
+
+{- 
+Класс типов Ord параметризован типовым параметром a и имеет в рамках класса типов контекст.
+Класс типов Ord расширяет класс типов Eq.
+-}
+class (Eq a) => Ord a where
+ (<), (<=), (>=), (>) :: a -> a -> Bool -- сигнатуры функций сравнения
+ max, min :: a -> a -> a
+ compare :: a -> a -> Ordering -- более тщательное сравнение двух значений
+{- Minimal complete definition: either compare or <= -}
+
+
+
+
+{-
+Класс типов MyClass является расширением классов типов Eq и Printable.
+-}
+class (Eq a, Printable a) => MyClass a where
+-- ...
