@@ -1,0 +1,3 @@
+[submodule "st_hs"]
+	path = st_hs
+	url = https://github.com/ovcharenkodi/st_hs.git
