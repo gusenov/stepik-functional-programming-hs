@@ -4,3 +4,6 @@
 [submodule "stepic-haskell"]
 	path = stepic-haskell
 	url = https://github.com/dstarcev/stepic-haskell.git
+[submodule "Stepic-FP-Haskell"]
+	path = Stepic-FP-Haskell
+	url = https://github.com/AlexMckey/Stepic-FP-Haskell.git
