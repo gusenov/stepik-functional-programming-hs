@@ -1,3 +1,6 @@
 [submodule "st_hs"]
 	path = st_hs
 	url = https://github.com/ovcharenkodi/st_hs.git
+[submodule "stepic-haskell"]
+	path = stepic-haskell
+	url = https://github.com/dstarcev/stepic-haskell.git
